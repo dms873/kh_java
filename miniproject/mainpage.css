@@ -16,17 +16,221 @@ ul, li{
 
 /* !리스트 문자 없애기 : 영원 */
 header{
+    margin: 0 auto;
+    background: #f6f5ef;
+    border-top: 3px solid #000;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    
+}
+header>div{
+    height: 120px;
+    position: relative;
+    
+}
+/* top_div 크기 설정 */
+header>div>.top_div{
+    margin: 0 auto;
+    width: 1100px;
+    height: 50px;
+    position: relative;
+}
+header>div:after{display: block; clear: both;}
+
+/* 로고 위치 설정 */
+header>div>.top_div>a{
+    float: left;
+    margin: 22px 0 0;
+    overflow: hidden;
+}
+/* first nav 설정 */
+header>div>.top_div>#nav_first{
+    position: absolute;
+    right: 60px;
+    top: 7px;
+    
+}
+/* first nav 각 컬럼 설정 */
+header>div>.top_div>#nav_first>ul>li{
+    float: left;
+    line-height: 30px;
+}
+/* first nav 각 컬럼 안 링크*/
+header>div>.top_div>#nav_first>ul>li>a{
+    display: block;
+    font-size: smaller;
+    color: #555;
+    padding: 0 15px;
+    border-right: 1px solid darkgray;
+    
+}
+/* first nav 테두리 중복제거 */
+header>div>.top_div>#nav_first>ul>li:last-child>a{
+    padding: 0;
+    display: block;
+    border-right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+/* first nav 돋보기 왼쪽 테두리 제거 */
+header>div>.top_div>#nav_first>ul>li:nth-last-child(2)>a{
+    border-right: 0;
+}
+/* first nav 돋보기 */
+header>div>.top_div>#nav_first>ul>li:last-child>a::before{
+/* content: "\e97a"; */
+font-family: 'xeicon';
+font-size: larger;
+counter-reset: #000;
+text-align: center;
+}
+
+
+/* botto_div 크기 설정 */
+
+
+header>div>.bottom_div{
+    overflow: hidden;
+    
+}
+
+header .nav_second{
+ position: relative;
+}
+/* second nav 위치고정 */
+header .main-menu{
+    position: absolute;
+    /* right: 500px; */
+}
+/* second nav float 정렬 */
+header .main-menu .item{
+    float: left;
+    height: 70px;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+
+header .main-menu .item .item_name {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  
+}
+header .main-menu .item .item_name a{
+    display: block;
+    height: 40px;
+    width: 0 auto;
+    padding: 10px 20px 0;
+    color: #000;
+    
+/* second nav 호버시 색상변경 */
+}
+header .main-menu .item:hover .item_name a{
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+}
+
+
+header .main-menu .item .item_contents {
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  transition: 0.5s; 
+  display: none;
+}
+
+header .main-menu .item:hover .item_contents {
+  display: block;
+  height: 500px;
+  
+}
+
+header .main-menu .item .item_contents .contents_menu {
+  background-color: #2c2a29;
+  padding-left: calc(50% - 550px);
+  
+}
+
+header .main-menu .item .item_contents .contents_menu>ul {
+  display: flex;
+  padding: 20px 0;
+}
+
+header .main-menu .item .item_contents .contents_menu>ul>li {
+  width: 220px;
+}
+
+header .main-menu .item .item_contents .contents_menu ul li h4 a{
+    color: #fff;
+}
+
+header .main-menu .item .item_contents .contents_menu ul li ul a{
+    color: #999;
+}
+
+header .main-menu .item .item_contents .contents_menu ul li a:hover{
+    text-decoration: underline;
+}
+
+header .main-menu .item .item_contents .contents_menu>ul>li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item_contents .contents_menu>ul>li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item_contents .contents_menu>ul>li ul li:hover {
+  color: #669900;
+}
+
+header .main-menu .item .item_contents .contents_texture {
+  padding: 26px 0;
+  font-size: 12px;
+  padding-left: calc(50% - 550px);
+  background-image: url(https://www.starbucks.co.kr/common/img/common/gnb_sub_txbg.jpg);
+}
+
+header .main-menu .item .item_contents .contents_texture h4 {
+  color: #999;
+  font-weight: 700;
+}
+
+header .main-menu .item .item_contents .contents_texture a{
+    color: #999
+  }
+
+header .main-menu .item .item_contents .contents_texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+
+/* header{
     background:seashell;
        
 }
-/* 메뉴 상단 고정 */
 header {
     position: fixed;
     width: 100%;
     z-index: 10;
 }
 
-/* 헤더 크기 */
 header>div{
     width: 1100px;
     height: 120px;
@@ -46,7 +250,6 @@ header #logo{
 #nav_first>ul>li{
     float: left;
 }
-/* 1번 네비바의 각 컬럼 */
 #nav_first>ul>li>a{
     display: block;
     font-size:smaller;
@@ -54,7 +257,6 @@ header #logo{
     padding: 0 15px;
     border-right: 1px solid darkgray;
 }
-/* 1번 네비바 테두리 중복제거 */
 #nav_first>ul>li:last-child>a{
     border-right: 0;
 }
@@ -72,7 +274,6 @@ header #logo{
     float: right;
     clear: both;
 }
-/* 각 컬럼 */
 #nav_second>ul>li{
     text-align: center;
     padding:0 25px;
@@ -84,24 +285,40 @@ header #logo{
     font-size: 14px;
     color: darkslategray;
     height: 56px;
-    /* padding:0 px;  */
 
-}
+} */
 
 /* ! 프로모션음료 메인화면 div : 우진오빠 */
+/* 프로모션음료 메인화면 div */
 .topWrap{        
     height: 646px;
-    background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring_main_bg.jpg);
+    background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring2_main_bg2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
+    padding-top: 150px;
+    }
+
 .main-visual_wrap{
     position: relative;
     bottom: 96px;
     width: 100%;
     height: 646px;
 }
-/* 가운데 div */
+
+.topWrap{        
+    height: 646px;
+    background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring2_main_bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+.main-visual_wrap{
+    position: relative;
+    bottom: 96px;
+    width: 100%;
+    height: 646px;
+}
+
 .main_visual_inner {
     width: 1130px;
     height: 100%;
@@ -110,6 +327,17 @@ header #logo{
    max-width: 1080px;
     margin: 0 auto;
 }
+
+
+/* 가운데 div */
+/* .main_visual_inner {
+    width: 1130px;
+    height: 100%;
+   position: relative;
+   box-sizing: border-box;
+   max-width: 1080px;
+    margin: 0 auto;
+} */
 
 /* 현대카드 div */
 .layer_floating{
@@ -175,24 +403,41 @@ header #logo{
 .set_01{
     
     top: 25.9%;
-    left: 26%;       
+    left: 15%;
+    animation:set 2s;  
 }
 
 /* main_Lemonade */
 .set_02{    
    
-    top: 5.1%;
+    /* top: 5.1%; */
     left: 42%;
+    animation: set 3s;
     
 }
 /* main_Yogurt */
 .set_03{
-    top: 19.2%;
-    left: 75%; 
+    top: 11.2%;
+    left: 80%; 
+    animation: set 4s;
 
+}
+
+@keyframes set{
+    from{
+        opacity: .0;
+    }
+    to{
+        opacity: 1;
+    }
+    
 }
  
 /* 자세히 보기 링크 */
+
+.slogan {
+    animation: set 3s;   
+}
 .btn_slogan > a{
 
     margin: 0 auto;
@@ -204,7 +449,8 @@ header #logo{
     font-size: 15px;
     line-height: 34px;
     border-radius: 5px;             
-    text-align: center;                
+    text-align: center;
+    animation: set 3s;           
 }
 
 
@@ -221,7 +467,7 @@ header #logo{
 
 @keyframes right {
     0% {
-        left: 50%;
+        left: 100%;
     }
 
     100% {
@@ -234,6 +480,7 @@ header #logo{
     position: relative;
     width: 100%;
     display: block;
+    height: 60px;
 }
 
 .line_notice_left {
@@ -386,6 +633,102 @@ header #logo{
 }
 
 /* ! 프로모션 배너 CSS 시작 : 은진 */
+/* 연습 */
+.slide {
+    height: 650px;
+    overflow: hidden;
+    position: relative;
+    background:#f6f5ef;
+}
+.slide li {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 1s;
+}
+.slide li:nth-child(1),
+.slide li:nth-child(2),
+.slide li:nth-child(3) {
+    background:#f6f5ef
+}
+.slide input{
+    display:none;
+}
+.slide .bullet {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+}
+.slide .bullet label {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 2px solid #666;
+    display: inline-block;
+    background: #fff;
+    font-size: 0;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+    /* 슬라이드 조작 */
+    #pos1:checked ~ ul li:nth-child(1),
+    #pos2:checked ~ ul li:nth-child(2),
+    #pos3:checked ~ ul li:nth-child(3) {
+        opacity:1;
+    }
+    /* bullet 조작 */
+    #pos1:checked ~ .bullet label:nth-child(1),
+    #pos2:checked ~ .bullet label:nth-child(2),
+    #pos3:checked ~ .bullet label:nth-child(3) {
+        background:#666;
+    }
+
+    .main_prom_bxslider a {
+        border: 2px solid #222;
+        border-radius: 3px;
+        color: #222;
+        display: block;
+        font-size: 14px;
+        height: 34px;
+        line-height: 34px;
+        margin: -50px 350px 0;
+        text-align: center;
+        width: 121px;
+    }
+
+    .bx-clone {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .img_style {
+        width: 819px;
+        height: 553px;
+    }
+
+    .main_prom_bxslider li a {
+        border: 2px solid #222;
+        border-radius: 3px;
+        color: #222;
+        display: block;
+        font-size: 14px;
+        height: 34px;
+        line-height: 34px;
+        margin: -50px auto 0;
+        text-align: center;
+        width: 121px;
+        position: absolute;
+        top: 90%;
+    }
+
 /* ! 망함. */
 /* 스벅 홈페이지 부분 */
 
@@ -590,7 +933,7 @@ p.bnr_swiper_right_mask {
     display: flex;
     justify-content: center;
     padding: 30px 0;
-    padding: 80px 0 30px;
+    /* padding: 80px 0 30px; */
     /* border-collapse: collapse; */
 }
 
@@ -656,16 +999,17 @@ p.bnr_swiper_right_mask {
 }
 
 /* ! 스프링시즌 CSS 시작 : 은진 */
-.topWrap {
-    padding-top: 150px;
+.springWrap{
+    background-image: url(https://media.discordapp.net/attachments/953519030080262175/953992839128289300/6cd796ca4054aa57.jpg);
+    background-size: cover;
+    padding: 80px;
 }
 
 .spring_season {
-    padding: 200px 0;
-    background-image: url(https://media.discordapp.net/attachments/953519030080262175/953992839128289300/6cd796ca4054aa57.jpg);
-    background-size: cover;
-    width: 100%;
-    /* position: absolute; */
+    position: relative;
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 
@@ -675,22 +1019,27 @@ p.bnr_swiper_right_mask {
     animation: left 4s;
     /* TODO : screen 이동 시로 변경 예정 */
     animation-iteration-count: 3;
-    top: 16.2%;
+    /* top: 16.2%; */
     left: 30.6%;
-    max-width: 486px;
+    max-width: 100%;
     width: 42%;
 }
 
+.inline_season img {
+    position: relative;
+    right: 70%;
+}
 
 .spring_font {
     display: inline-block;
-    position: relative;
+    position: absolute;
     animation: right 4s;
     /* TODO : screen 이동 시로 변경 예정 */
     animation-iteration-count: 3;
-    left: 30%;
-    bottom: 100px;
+    left: 60%;
+    bottom: 200px;
     margin-left: 20px;
+    width: 400px;
 }
 
 
@@ -734,6 +1083,99 @@ p.bnr_swiper_right_mask {
     display: inline-flex;
     justify-content: left;
     width: 250px;
+}
+
+/* 에티오피아 CSS 시작 */
+.reserve_wrap_ethiopia {
+    position: relative;
+    background: url("https://image.istarbucks.co.kr/upload/common/img/main/2022/reserve_2022_ethiopia_visual_bg.jpg") no-repeat center top;
+    background-size: cover;
+    height: 400px; 
+    overflow: hidden;
+    /* padding-left: 10%; */
+}
+
+.ethiopia {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.ethiopia_img {
+    position: relative;
+    z-index: 5;
+    padding-top: 82px;
+    max-width: 1080px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.ethiopia_visual {
+    transform: translateX(-11px);
+    width: auto;
+    vertical-align: top;
+    max-width: 100%;
+}
+.ethiopia_visual .ethiopia_visual_coffee{
+    max-width: none;
+}
+
+.ethiopia_visual_coffee{
+    width: auto;
+}
+
+.eth_coffee_img {
+    width: 100%;
+    position: absolute;
+    display: block;
+    bottom: 0;
+}
+
+.eth_coffee_img .ethiopia_visual{
+    max-width: none;
+}
+
+.eth_coffee_img img {
+
+   width: auto;
+   vertical-align: top;
+   
+}
+
+.ethiopia_btn {
+    position: relative;
+    z-index: 5;
+    max-width: 1080px;
+    margin-top: 23px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 254px;
+    box-sizing: border-box;
+}
+
+.ethiopia_btn_detail {
+    width: 125px;
+    height: 38px;
+    background: transparent;
+}
+
+.ethiopia_btn_detail a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    line-height: 34px;
+    color: #b9813e;
+    text-align: center;
+    border: 2px solid #b9813e;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: background-color .7s, color .7s, border-color .7s;
+    text-decoration: none;
 }
 
 /* ! 에티오피아 CSS 시작 : 은진 */
@@ -875,7 +1317,7 @@ p.bnr_swiper_right_mask {
     right: -10px;
     width: 672px;
     height: 458px;
-    background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring_pick_img.png);
+    background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Spring2_pick_img.png);
     position: absolute;
     background-size: 100% !important;
     background-repeat: no-repeat;
@@ -1189,4 +1631,167 @@ p.bnr_swiper_right_mask {
         right: 399px;
         opacity: 1;
     }
+}
+
+/* footer */
+
+footer#footer{
+    background:#2C2A29;
+    clear:both;
+    position: relative;
+    width: 100%;
+    padding-top: 30px;
+}
+
+
+ /* div 백그라운드 */
+.footer_wrap{
+    background:url("	https://www.starbucks.co.kr/common/img/footer/footer_logo.png") right 8px no-repeat;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+}
+/* footer_wrap div */
+
+.footer_wrap{
+    margin-left: -591px;
+    width: 1182px;
+    
+}
+
+.footer_menus ul li.footer_menu_ttl a{
+    font-size: 14px;
+    line-height: 40px;
+}
+.footer_menus ul li a{
+    color: white;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.footer_menus ul li a{
+    width: 100%;
+}
+
+
+.footer_menus ul{
+    width: 220px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 30px;
+}
+
+.footer_menus {
+    padding-bottom: 40px;
+}
+
+.footer_awards_wrap {
+    background: #282828;
+    height: 80px;
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.footer_awards_slider {
+    display: inline-block;
+    position: relative;
+}
+
+.footer_awards_wrap_inner {
+    position: absolute;
+    left: 50%;
+    margin-left: -591px;
+    width: 1182px;
+    padding-bottom: 20px;
+}
+
+.footer_awards_wrap_inner ul li {
+    float: left;
+}
+
+.footer_awards_wrap_inner li {
+    position: relative;
+}
+
+.footer_awards_slider li a {
+    display: block;
+}
+
+.footer_awards_slider li a img {
+    margin: 0 auto;
+}
+
+.footer_slider_controller {
+    bottom: 3px;
+    height: 12px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 14;
+}
+
+.copyright {
+    left: 50%;
+    position: relative;
+    display: block;
+    color: #999;
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: -50%;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.copyright ul.copy_menu li {
+    line-height: 1.3;
+    display: inline-block;
+    margin: 0 7px;
+}
+
+.copyright a {
+    display: inline-block;
+    border-right: 1px solid #393939;
+    color: #ccc;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.c_00b050 {
+    color: #00b050 !important;
+    font-weight: bold;
+}
+
+.copyright a.last {
+    border-right: 0;
+}
+
+.copyright a.btned_link {
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px 2px 0 3px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.copyright ul.copy_menu {
+    padding: 25px 0 5px 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.copyright span.en {
+    display: inline-block;
+    line-height: 40px;
+}
+
+.en {
+    font-family: Arial, Helvetica, sans-serif;
 }
